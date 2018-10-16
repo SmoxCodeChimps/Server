@@ -1,0 +1,19 @@
+%table
+	%thead
+		%th Name
+		%th Tracker Name
+		%th Tracker id
+		%th Tracker Image
+		%th Portrait Image
+
+	%tbody
+		%tr
+			%td= @group.name
+			%td= @group.tracker_name
+			%td= @group.tracker_id
+			%td= image_tag @group.tracker, height: "200", width: "200"
+			%td= image_tag @group.portrait, height: "200", width: "200"
+		
+			- @group.users.each do |u|
+				%tr
+					%td= u.email

@@ -1,0 +1,18 @@
+.h1 Users
+
+%table
+	%thead
+		%th Id
+		%th Name
+		%th Password
+		%th email
+
+	%tbody
+		- @users.each do |u|
+			%tr
+				%td= u.id
+				%td= u.username
+				%td= u.password
+				%td= u.email
+				%td= link_to "Borrar", u, :method => 'delete'
+		

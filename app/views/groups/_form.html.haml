@@ -1,0 +1,17 @@
+= form_with model: @group do |f|
+	= f.label "name"
+	= f.text_field :name
+	%p
+	= f.label "Tracker Name"
+	= f.text_field :tracker_name
+	%p
+	= f.label "Tracker Image"
+	= f.file_field :tracker
+	-if controller.action_name == "edit"
+		= image_tag @group.tracker, height: "200", width: "200"
+	= f.label "Portrait Image"
+	= f.file_field :portrait
+	-if controller.action_name == "edit"
+		= image_tag @group.portrait, height: "200", width: "200"
+	%p
+	= f.submit

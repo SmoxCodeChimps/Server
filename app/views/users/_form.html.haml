@@ -1,0 +1,11 @@
+
+= form_with model: @user do |f|
+	= f.label :username
+	= f.text_field :username
+	%p
+	= f.label :email
+	= f.text_field :email
+	%p
+	= f.label :password
+	= f.text_field :password
+	= f.submit

@@ -1,0 +1,28 @@
+.h1 Groops
+
+%table
+	%thead
+		%th Group name
+		%th Tracker id
+		%th tracker image
+		%th portrait image
+
+
+	%tbody
+		- @groups.each do |group|
+			%tr
+				%td= group.name
+				%td= group.tracker_name
+				%td= group.tracker_id
+				%td= image_tag group.tracker, height: "200", width: "200"
+				%td= image_tag group.portrait, height: "200", width: "200"
+				%td= link_to 'Show', group_path(group)
+				%td= link_to 'Edit', edit_group_path(group)
+				%td= link_to "Unirse", join_group_path(group)
+				%td= link_to "Ver Tracker", tracker_group_path(group.tracker_name)
+				%td= link_to "Ver marco", portrait_group_path(group.tracker_name)
+				%td= link_to "Borrar", group, :method => 'delete'
+
+
+=button_to "Nuevo Grupo", {:action => "new"}, :method =>:get
+
