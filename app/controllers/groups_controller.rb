@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
 
 	def show
 		@group = Group.find(params[:id])
-		#render :json => @group
+		render :json => @group
 	end
 
 	def update
@@ -106,8 +106,9 @@ class GroupsController < ApplicationController
 		body = JSON.parse(response.response.body)
 		tracker_id = body["target_id"]
 		@group.tracker_id = tracker_id
-		
-		@user = User.find(current_user.id)
+		puts "AAAAAAA"
+		puts current_user
+		@user = User.find(params[:user_id])
 		@user.group_id = @group.id
 		@group.users << @user
 		@group.save
@@ -136,7 +137,7 @@ class GroupsController < ApplicationController
 	private
 
 	def groups_params
-		params.permit(:name, :tracker_name, :tracker_id,:tracker, :portrait, :id)
+		params.permit(:name, :tracker_name, :tracker_id,:tracker, :portrait, :id,:user_id)
 	end
 
 	def groups_paramsweb

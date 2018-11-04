@@ -21,13 +21,13 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       post :appCreate
-      
+      get :groop
       get :getUser
       post :appEdit
 
     end
     member do
-     get :groop
+     
     end
   end
  root 'groups#index'
