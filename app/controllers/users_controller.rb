@@ -70,7 +70,7 @@ class UsersController < ApplicationController
         @user.username = params[:username]
       end
       if params[:password]
-        @user.username = params[:password] 
+        @user.password = params[:password] 
       end
       @user.save
       render :json => @user
